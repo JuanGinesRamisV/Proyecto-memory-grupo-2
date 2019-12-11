@@ -190,6 +190,21 @@ def menu_idioma():
     print("                                                             ")
     print("=============================================================")
 
+
+def menu_jugar():
+    print("=============================================================")
+    print("=                                                           =") 
+    print("=                    JUGAR                                  =")
+    print("=                                                           =")
+    print("=============================================================")
+    print("                                                             ")
+    print("                     1.- Facíl                               ")
+    print("                     2.- Medio                               ")
+    print("                     3.- Dificil                             ")
+    print("                                                             ")
+    print("=============================================================")
+
+
 def menu():
     lista_palabras=seleccionar_idioma(1)
     salir= False
@@ -210,24 +225,34 @@ def menu():
         os.system("cls")
     
         if opcion == 1:
-            print("----------------------------------------")
-            print("-                 FÁCIL                -")
-            print("----------------------------------------")            #Nivel 1
-            lista_cartas=generar_cartas(2,lista_palabras)
-            lista_oculta=Oculto(lista_cartas)
-            juego(lista_cartas,lista_oculta,5,"")
-            print("----------------------------------------")
-            print("-                 MEDIO                -")
-            print("----------------------------------------")            #Nivel 2
-            lista_cartas=generar_cartas(4,lista_palabras)
-            lista_oculta=Oculto(lista_cartas)
-            juego(lista_cartas,lista_oculta,7,"")
-            print("----------------------------------------")
-            print("-                 DIFÍCIL              -")
-            print("----------------------------------------")            #Nivel 3
-            lista_cartas=generar_cartas(5,lista_palabras)
-            lista_oculta=Oculto(lista_cartas)
-            juego(lista_cartas,lista_oculta,10,"final") 
+            os.system("cls")
+            menu_jugar()
+            opcion_nivel=int(input('Elige un modo de juego: '))
+            os.system("cls")
+            if opcion_nivel==1:
+                os.system("cls")
+                print("----------------------------------------")
+                print("-                 FÁCIL                -")
+                print("----------------------------------------")            #Nivel 1
+                lista_cartas=generar_cartas(2,lista_palabras)
+                lista_oculta=Oculto(lista_cartas)
+                juego(lista_cartas,lista_oculta,5,"")
+            elif opcion_nivel==2:
+                os.system("cls")
+                print("----------------------------------------")
+                print("-                 MEDIO                -")
+                print("----------------------------------------")            #Nivel 2
+                lista_cartas=generar_cartas(4,lista_palabras)
+                lista_oculta=Oculto(lista_cartas)
+                juego(lista_cartas,lista_oculta,7,"")
+            else:
+                os.system("cls")
+                print("----------------------------------------")
+                print("-                 DIFÍCIL              -")
+                print("----------------------------------------")            #Nivel 3
+                lista_cartas=generar_cartas(5,lista_palabras)
+                lista_oculta=Oculto(lista_cartas)
+                juego(lista_cartas,lista_oculta,10,"final") 
         elif opcion == 2:
             menu_idioma()
             idioma = int(input("Elige un idioma: "))
